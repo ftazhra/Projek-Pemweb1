@@ -75,14 +75,35 @@
             z-index: 10;
         }
 
-        .logo-kiri img {
-            height: 40px;
-            margin-right: 10px;
-        }
-
+        
         .logo-kiri {
             display: flex;
+            gap: 5px;
             align-items: center;
+        }
+
+        
+        .logo-box {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            overflow: hidden;
+        }
+
+        
+        .logo-box img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        
+        .logo-dlh {
+            margin-bottom: 8px;
         }
 
         .menu {
@@ -140,14 +161,15 @@
         }
 
         .sejarah-desa p {
-            color: #064a1f;
+            color: #100f0f;
             font-size: 1.1rem;
             text-align: justify;
             margin-bottom: 15px;
+            font-weight: bolder;
         }
 
         .link-selengkapnya {
-            color: #064a1f;
+            color: #100f0f;
             font-weight: bold;
             text-decoration: underline;
         }
@@ -339,66 +361,66 @@
             background-color: #e0e0e0;
         }
 
-            .profil-judul {
-                background-color: #f7f700;
-                text-align: center;
-                padding: 20px 10px;
-                font-size: 2rem;
-                color: #064a1f;
-                font-weight: bold;
-                margin-top: 40px;
-            }
+        .profil-judul {
+            background-color: #f7f700;
+            text-align: center;
+            padding: 20px 10px;
+            font-size: 2rem;
+            color: #064a1f;
+            font-weight: bold;
+            margin-top: 40px;
+        }
 
-            .wadah-profil {
-                margin: 30px auto;
-                padding: 20px;
-                max-width: 1200px;
-                background: #eff9dd;
-                border-radius: 30px;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                gap: 10px;
-                flex-wrap: wrap;
-            }
+        .wadah-profil {
+            margin: 30px auto;
+            padding: 20px;
+            max-width: 1200px;
+            background: #eff9dd;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
 
-            .tombol-panah {
-                font-size: 40px;
-                cursor: pointer;
-                color: #81c147;
-                user-select: none;
-            }
+        .tombol-panah {
+            font-size: 40px;
+            cursor: pointer;
+            color: #81c147;
+            user-select: none;
+        }
 
-            .kartu-profil {
-                text-align: center;
-                padding: 10px;
-                width: 30%;
-                background: white;
-                border-radius: 25px;
-                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            }
+        .kartu-profil {
+            text-align: center;
+            padding: 10px;
+            width: 30%;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
 
-            .kartu-profil img {
-                width: 120px;
-            }
+        .kartu-profil img {
+            width: 120px;
+        }
 
-            .kartu-profil h3 {
-                margin: 15px 0 5px;
-                font-size: 1rem;
-                font-weight: bold;
-                color: #444;
-            }
+        .kartu-profil h3 {
+            margin: 15px 0 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #444;
+        }
 
-            .kartu-profil p {
-                margin: 0;
-                font-size: 0.9rem;
-                color: #222;
-            }
+        .kartu-profil p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #222;
+        }
 
-            .kartu-profil p a {
-                color: #333;
-                text-decoration: underline;
-            }
+        .kartu-profil p a {
+            color: #333;
+            text-decoration: underline;
+        }
 
 
         @media (max-width: 768px) {
