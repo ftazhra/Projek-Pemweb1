@@ -1,0 +1,40 @@
+{
+    "destinasi": [
+        {
+            "nama": "Air Terjun Dayam Seriam",
+            "deskripsi": "Air Terjun Dayam Seriam terletak di Desa Modang dengan ketinggian sekitar 15 meter. Air terjun ini dikelilingi oleh hutan tropis yang lebat dan menjadi habitat berbagai spesies flora dan fauna endemik Kalimantan.",
+            "gambar": "images/air-terjun-dayam-seriam.jpg",
+            "link": "#"
+        },
+        {
+            "nama": "Tugu Desa Kerta Bumi",
+            "deskripsi": "Tugu Desa Kerta Bumi adalah salah satu landmark yang terletak di Desa Kerta Bumi, Kecamatan Kuaro. Tugu ini dibangun untuk memperingati sejarah transmigrasi dan perjuangan warga dalam membangun desa.",
+            "gambar": "images/tugu-kerta-bumi.jpg",
+            "link": "#"
+        },
+        {
+            "nama": "Air Terjun Dayam Binding Olo",
+            "deskripsi": "Air Terjun Dayam Binding Olo terletak di Desa Modang, Kabupaten Paser. Dengan air yang jernih dan kolam alami di bawahnya, tempat ini cocok untuk berenang dan piknik keluarga.",
+            "gambar": "images/air-terjun-binding-olo.jpg",
+            "link": "#"
+        },
+        {
+            "nama": "Konservasi Mangrove Modang",
+            "deskripsi": "Konservasi Mangrove Modang di Desa Modang, Kecamatan Kuaro, Kabupaten Paser merupakan kawasan edukasi tentang pentingnya ekosistem mangrove dengan berbagai jenis tanaman bakau yang dilindungi.",
+            "gambar": "images/mangrove-modang.jpg",
+            "link": "#"
+        },
+        {
+            "nama": "Puncak Bukit DAR",
+            "deskripsi": "Puncak Bukit DAR di Desa Modang, Kecamatan Kuaro, Kabupaten Paser menawarkan pemandangan panorama alam yang menakjubkan, terutama saat matahari terbit dan terbenam.",
+            "gambar": "images/bukit-dar.jpg",
+            "link": "#"
+        },
+        {
+            "nama": "Sungai 21 Kertabumi",
+            "deskripsi": "Sungai 21 Kertabumi adalah destinasi wisata alam yang terletak di Desa Kerta Bumi. Sungai ini terkenal dengan airnya yang jernih dan berbagai aktivitas air seperti arung jeram dan memancing.",
+            "gambar": "images/sungai-21.jpg",
+            "link": "#"
+        }
+    ]
+}
