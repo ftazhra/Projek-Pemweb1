@@ -1,453 +1,583 @@
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        body {
-            background-color: #f5f5f5;
-            color: #333;
-            line-height: 1.6;
-        }
-
-        .kepala {
-            background-image: url(bg.jpeg);
-            /* ganti sesuai lokasi gambarmu */
-            background-size: cover;
-            background-position: center;
-            padding: 150px 30px;
-            text-align: center;
-            color: white;
-            position: relative;
-        }
-
-        .kepala::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.4);
-            /* efek gelap transparan */
-            z-index: 1;
-        }
-
-        .wadah {
-            position: relative;
-            z-index: 2;
-            max-width: 900px;
-            margin: auto;
-        }
-
-        .kepala h1 {
-            font-size: 2.8rem;
-            color: #ffff00;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .kepala h2 {
-            font-size: 1.4rem;
-            font-style: italic;
-            color: #f0f0f0;
-            margin-bottom: 20px;
-        }
-
-        .kepala p {
-            font-size: 1.1rem;
-            color: #ddd;
-        }
-
-        .navigasi {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 30px;
-            background-color: rgba(0, 0, 0, 0.6);
-            /* transparan hitam */
-            position: absolute;
-            width: 100%;
-            top: 0;
-            z-index: 10;
-        }
-
-        
-        .logo-kiri {
-            display: flex;
-            gap: 5px;
-            align-items: center;
-        }
-
-        
-        .logo-box {
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 10px;
-            overflow: hidden;
-        }
-
-        
-        .logo-box img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            display: block;
-        }
-
-        
-        .logo-dlh {
-            margin-bottom: 8px;
-        }
-
-        .menu {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .menu a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .menu a:hover {
-            color: #ffff00;
-        }
-
-        .lokasi-btn {
-            background-color: #ffff00;
-            color: black !important;
-            padding: 8px 14px;
-            border-radius: 20px;
-            font-weight: bold;
-        }
-
-
-        .kotak-sejarah-dan-testimoni {
-            display: flex;
-            justify-content: space-between;
-            background: linear-gradient(to bottom, #a8e063, #56ab2f);
-            padding: 40px;
-            border-radius: 20px;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-
-        .sejarah-desa {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .sejarah-desa h2 {
-            background-color: #f7a100;
-            color: #fff700;
-            font-weight: bold;
-            font-size: 2rem;
-            padding: 10px 20px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            display: inline-block;
-            background: linear-gradient(to right, #f7a100, #ffcc00);
-        }
-
-        .sejarah-desa p {
-            color: #100f0f;
-            font-size: 1.1rem;
-            text-align: justify;
-            margin-bottom: 15px;
-            font-weight: bolder;
-        }
-
-        .link-selengkapnya {
-            color: #100f0f;
-            font-weight: bold;
-            text-decoration: underline;
-        }
-
-        .testimoni-box {
-            flex: 1;
-            min-width: 300px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            justify-content: center;
-        }
-
-        .satu-testimoni {
-            background-color: #fefee0;
-            padding: 20px;
-            border-radius: 15px;
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            position: relative;
-        }
-
-        .satu-testimoni img {
-            width: 40px;
-            height: 40px;
-        }
-
-        .isi-testimoni {
-            flex: 1;
-        }
-
-        .bintang {
-            color: gold;
-            font-size: 1.2rem;
-            margin: 5px 0;
-        }
-
-        .isi-testimoni p {
-            margin: 0;
-            font-size: 0.95rem;
-            color: #222;
-        }
-
-
-        .kartu-destinasi {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 25px;
-        }
-
-        .kartu-wisata {
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .kartu-wisata:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .gambar-wisata {
-            height: 200px;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .konten-wisata {
-            padding: 20px;
-        }
-
-        .konten-wisata h3 {
-            color: #2c7a4a;
-            margin-bottom: 10px;
-        }
-
-        .konten-wisata p {
-            margin-bottom: 15px;
-        }
-
-        .lokasi-pengunjung {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-
-        .bagian-lokasi,
-        .bagian-komentar {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .bagian-lokasi h2,
-        .bagian-komentar h2 {
-            color: #2c7a4a;
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            border-bottom: 2px solid #2c7a4a;
-            padding-bottom: 8px;
-        }
-
-        .formulir-komentar {
-            margin-top: 20px;
-        }
-
-        .grup-formulir {
-            margin-bottom: 20px;
-        }
-
-        .grup-formulir label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: #444;
-        }
-
-        .grup-formulir input[type="text"],
-        .grup-formulir textarea {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-             font-size: 1rem;
-            transition: border-color 0.3s;
-        }
-
-        .grup-formulir input[type="text"]:focus,
-        .grup-formulir textarea:focus {
-            border-color: #2c7a4a;
-            outline: none;
-        }
-
-        .grup-formulir textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        .grup-centang {
-            margin-bottom: 15px;
-        }
-
-        .grup-centang input {
-            margin-right: 10px;
-        }
-
-        .grup-centang label {
-            font-weight: normal;
-            color: #555;
-        }
-
-        .tombol-formulir {
-            display: flex;
-            gap: 15px;
-            margin-top: 25px;
-        }
-
-        .tombol {
-            padding: 12px 25px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .tombol-utama {
-            background-color: #2c7a4a;
-            color: white;
-        }
-
-        .tombol-utama:hover {
-            background-color: #1e5631;
-        }
-
-        .tombol-kedua {
-            background-color: #f0f0f0;
-            color: #555;
-        }
-
-        .tombol-kedua:hover {
-            background-color: #e0e0e0;
-        }
-
-        .profil-judul {
-            background-color: #f7f700;
-            text-align: center;
-            padding: 20px 10px;
-            font-size: 2rem;
-            color: #064a1f;
-            font-weight: bold;
-            margin-top: 40px;
-        }
-
-        .wadah-profil-container{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-        .wadah-profil {
-            margin: 30px auto;
-            padding: 20px;
-            max-width: 1200px;
-            background: #eff9dd;
-            border-radius: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .tombol-panah {
-            font-size: 40px;
-            cursor: pointer;
-            color: #81c147;
-            user-select: none;
-        }
-
-        .kartu-profil {
-            text-align: center;
-            padding: 10px;
-            width: 30%;
-            background: white;
-            border-radius: 25px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            min-height: 280px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .kartu-profil img {
-            width: 120px;
-        }
-
-        .kartu-profil h3 {
-            margin: 15px 0 5px;
-            font-size: 1rem;
-            font-weight: bold;
-            color: #444;
-        }
-
-        .kartu-profil p {
-            margin: 0;
-            font-size: 0.9rem;
-            color: #222;
-        }
-
-        .kartu-profil p a {
-            color: #333;
-            text-decoration: underline;
-        }
-
-
-        @media (max-width: 768px) {
-            .kepala h1 {
-                font-size: 2.5rem;
-            }
-
-            .kepala h2 {
-                font-size: 1.4rem;
-            }
-
-            .testimoni {
-                width: 100%;
-            }
-
-            .kartu-destinasi {
-                grid-template-columns: 1fr;
-            }
-        }
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+
+:root {
+    --primary-color: #2e7d32;
+    --primary-dark: #1b5e20;
+    --primary-light: #81c784;
+    --secondary-color: #ff8f00;
+    --dark-color: #263238;
+    --light-color: #ffffff;
+    --white: #ffffff;
+    --black: #000000;
+    --gray: #757575;
+    --light-gray: #e0e0e0;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+    --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+    --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+.kepala {
+  background-image: url(imgg/bg.jpeg);
+  /* ganti sesuai lokasi gambarmu */
+  background-size: cover;
+  background-position: center;
+  padding: 150px 30px;
+  text-align: center;
+  color: white;
+  position: relative;
+}
+
+.kepala::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  /* efek gelap transparan */
+  z-index: 1;
+}
+
+.wadah {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin: auto;
+}
+
+.kepala h1 {
+  font-size: 2.8rem;
+  color: #ffff00;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.kepala h2 {
+  font-size: 1.4rem;
+  font-style: italic;
+  color: #f0f0f0;
+  margin-bottom: 20px;
+}
+
+.kepala p {
+  font-size: 1.1rem;
+  color: #ddd;
+}
+
+.navigasi {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: rgba(0, 0, 0, 0.6);
+  /* transparan hitam */
+  position: absolute;
+  width: 100%;
+  top: 0;
+  z-index: 10;
+}
+
+.logo-kiri {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.logo-box {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  overflow: hidden;
+}
+
+.logo-box img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.logo-dlh {
+  margin-bottom: 8px;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.menu a:hover {
+  color: #ffff00;
+}
+
+.lokasi-btn {
+  background-color: #ffff00;
+  color: black !important;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.kotak-sejarah-dan-testimoni {
+  display: flex;
+  justify-content: space-between;
+  background: linear-gradient(to bottom, #a8e063, #56ab2f);
+  padding: 40px;
+  border-radius: 20px;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.sejarah-desa {
+  flex: 1;
+  min-width: 300px;
+}
+
+.sejarah-desa h2 {
+  background-color: #f7a100;
+  color: #fff700;
+  font-weight: bold;
+  font-size: 2rem;
+  padding: 10px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  display: inline-block;
+  background: linear-gradient(to right, #f7a100, #ffcc00);
+}
+
+.sejarah-desa p {
+  color: #100f0f;
+  font-size: 1.1rem;
+  text-align: justify;
+  margin-bottom: 15px;
+  font-weight: bolder;
+}
+
+.link-selengkapnya {
+  color: #100f0f;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.testimoni-box {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+}
+
+.satu-testimoni {
+  background-color: #fefee0;
+  padding: 20px;
+  border-radius: 15px;
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.satu-testimoni img {
+  width: 40px;
+  height: 40px;
+}
+
+.isi-testimoni {
+  flex: 1;
+}
+
+.bintang {
+  color: gold;
+  font-size: 1.2rem;
+  margin: 5px 0;
+}
+
+.isi-testimoni p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #222;
+}
+
+.kartu-destinasi {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 25px;
+}
+
+.kartu-wisata {
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.kartu-wisata:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.gambar-wisata {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+}
+
+.konten-wisata {
+  padding: 20px;
+}
+
+.konten-wisata h3 {
+  color: #2c7a4a;
+  margin-bottom: 10px;
+}
+
+.konten-wisata p {
+  margin-bottom: 15px;
+}
+
+.lokasi-pengunjung {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.bagian-lokasi,
+.bagian-komentar {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.bagian-lokasi h2,
+.bagian-komentar h2 {
+  color: #2c7a4a;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  border-bottom: 2px solid #2c7a4a;
+  padding-bottom: 8px;
+}
+
+.formulir-komentar {
+  margin-top: 20px;
+}
+
+.grup-formulir {
+  margin-bottom: 20px;
+}
+
+.grup-formulir label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #444;
+}
+
+.grup-formulir input[type="text"],
+.grup-formulir textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.grup-formulir input[type="text"]:focus,
+.grup-formulir textarea:focus {
+  border-color: #2c7a4a;
+  outline: none;
+}
+
+.grup-formulir textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.grup-centang {
+  margin-bottom: 15px;
+}
+
+.grup-centang input {
+  margin-right: 10px;
+}
+
+.grup-centang label {
+  font-weight: normal;
+  color: #555;
+}
+
+.tombol-formulir {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.tombol {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.tombol-utama {
+  background-color: #2c7a4a;
+  color: white;
+}
+
+.tombol-utama:hover {
+  background-color: #1e5631;
+}
+
+.tombol-kedua {
+  background-color: #f0f0f0;
+  color: #555;
+}
+
+.tombol-kedua:hover {
+  background-color: #e0e0e0;
+}
+
+.profil-judul {
+  background-color: #f7f700;
+  text-align: center;
+  padding: 20px 10px;
+  font-size: 2rem;
+  color: #064a1f;
+  font-weight: bold;
+  margin-top: 40px;
+}
+
+.wadah-profil-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.wadah-profil {
+  margin: 30px auto;
+  padding: 20px;
+  max-width: 1200px;
+  background: #eff9dd;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.tombol-panah {
+  font-size: 40px;
+  cursor: pointer;
+  color: #81c147;
+  user-select: none;
+}
+
+.kartu-profil {
+  text-align: center;
+  padding: 10px;
+  width: 30%;
+  background: white;
+  border-radius: 25px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.kartu-profil img {
+  width: 120px;
+}
+
+.kartu-profil h3 {
+  margin: 15px 0 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #444;
+}
+
+.kartu-profil p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #222;
+}
+
+.kartu-profil p a {
+  color: #333;
+  text-decoration: underline;
+}
+
+footer {
+  background: var(--dark-color);
+  color: var(--white);
+  padding: 80px 0 0;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-logo {
+  height: 100px;
+  margin-bottom: 20px;
+}
+
+.footer-col p {
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 20px;
+  line-height: 1.7;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.social-links a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--white);
+  transition: all 0.3s;
+}
+
+.social-links a:hover {
+  background: var(--primary-color);
+  transform: translateY(-3px);
+}
+
+.footer-col h3 {
+  font-size: 1.3rem;
+  margin-bottom: 25px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.footer-col h3::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: var(--primary-color);
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col ul li {
+  margin-bottom: 15px;
+}
+
+.footer-col ul li a {
+  color: rgba(255, 255, 255, 0.7);
+  transition: all 0.3s;
+  display: block;
+}
+
+.footer-col ul li a:hover {
+  color: var(--white);
+  padding-left: 5px;
+}
+
+.contact-info {
+  list-style: none;
+}
+
+.contact-info li {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.7);
+  transition: all 0.3s;
+}
+
+.contact-info i {
+  margin-top: 3px;
+  color: var(--primary-color);
+  transition: color 0.3s ease-in-out;
+}
+
+.contact-info li:hover i {
+  color: var(--white);
+}
+
+.contact-info li:hover {
+  color: var(--white);
+  transform: translateX(5px);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 60px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .kepala h1 {
+    font-size: 2.5rem;
+  }
+
+  .kepala h2 {
+    font-size: 1.4rem;
+  }
+
+  .testimoni {
+    width: 100%;
+  }
+
+  .kartu-destinasi {
+    grid-template-columns: 1fr;
+  }
+}
