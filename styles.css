@@ -15,7 +15,6 @@
 
         .kepala {
             background-image: url(bg.jpeg);
-            /* ganti sesuai lokasi gambarmu */
             background-size: cover;
             background-position: center;
             padding: 150px 30px;
@@ -75,14 +74,14 @@
             z-index: 10;
         }
 
-        
+
         .logo-kiri {
             display: flex;
             gap: 5px;
             align-items: center;
         }
 
-        
+
         .logo-box {
             width: 50px;
             height: 50px;
@@ -93,7 +92,7 @@
             overflow: hidden;
         }
 
-        
+
         .logo-box img {
             max-width: 100%;
             max-height: 100%;
@@ -101,9 +100,23 @@
             display: block;
         }
 
-        
-        .logo-dlh {
-            margin-bottom: 8px;
+        .box-a {
+            width: 70px;
+            height: 70px;
+            margin-top: -3px;
+            margin-right: -10px;
+        }
+
+        .box-b {
+            width: 50px;
+            height: 50px;
+            margin-right: 1px;
+        }
+
+        .box-c {
+            width: 70px;
+            height: 70px;
+            margin-top: -17px
         }
 
         .menu {
@@ -132,13 +145,11 @@
             font-weight: bold;
         }
 
-
         .kotak-sejarah-dan-testimoni {
             display: flex;
             justify-content: space-between;
-            background: linear-gradient(to bottom, #a8e063, #56ab2f);
+            background: linear-gradient(#5cb338, #e7fbb4);
             padding: 40px;
-            border-radius: 20px;
             gap: 30px;
             flex-wrap: wrap;
         }
@@ -149,15 +160,24 @@
         }
 
         .sejarah-desa h2 {
-            background-color: #f7a100;
-            color: #fff700;
-            font-weight: bold;
-            font-size: 2rem;
+            background: orange;
+            color: white;
             padding: 10px 20px;
-            border-radius: 8px;
-            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
             display: inline-block;
-            background: linear-gradient(to right, #f7a100, #ffcc00);
+            clip-path: polygon(0% 0%,
+                    /* kiri atas */
+                    calc(100% - 20px) 0%,
+                    /* sisi kanan agak masuk */
+                    100% 50%,
+                    /* ujung panah kanan */
+                    calc(100% - 20px) 100%,
+                    /* sisi kanan agak masuk */
+                    0% 100%
+                    /* kiri bawah */
+                );
+            margin-bottom: 20px;
         }
 
         .sejarah-desa p {
@@ -171,6 +191,89 @@
         .link-selengkapnya {
             color: #100f0f;
             font-weight: bold;
+            text-decoration: underline;
+        }
+
+        /* Profil Pengelola */
+        .latar-profil {
+            background: linear-gradient(to bottom, #5cb338, #e7fbb4);
+            padding: 50px 0;
+            margin-top: -100px;
+        }
+
+        .profil-judul {
+            background-color: #f7f700;
+            text-align: center;
+            padding: 20px 10px;
+            font-size: 2rem;
+            color: #064a1f;
+            font-weight: bold;
+            margin-top: 40px;
+        }
+
+        .wadah-profil-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+
+        }
+
+        .wadah-profil {
+            margin: 30px auto;
+            padding: 20px;
+            max-width: 1200px;
+            background: #eff9dd;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            flex-wrap: wrap;
+
+        }
+
+        .tombol-panah {
+            font-size: 40px;
+            cursor: pointer;
+            color: #81c147;
+            user-select: none;
+        }
+
+        .kartu-profil {
+            text-align: center;
+            padding: 10px;
+            width: 30%;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .kartu-profil img {
+            width: 120px;
+        }
+
+        .kartu-profil h3 {
+            margin: 15px 0 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #444;
+        }
+
+        .kartu-profil p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #222;
+        }
+
+        .kartu-profil p a {
+            color: #333;
             text-decoration: underline;
         }
 
@@ -215,49 +318,75 @@
             color: #222;
         }
 
+        .isi-section {
+            padding: 50px 30px;
+            background: linear-gradient(#e7fbb4, #5cb338);
+        }
 
-        .kartu-destinasi {
+        .judul-kuning {
+            background: orange;
+            color: white;
+            padding: 10px 20px;
+            font-size: 24px;
+            font-weight: bold;
+            display: inline-block;
+            clip-path: polygon(20px 0%,
+                    /* sisi kiri agak masuk */
+                    100% 0%,
+                    /* kanan atas */
+                    100% 100%,
+                    /* kanan bawah */
+                    20px 100%,
+                    /* sisi kiri agak masuk */
+                    0% 50%
+                    /* ujung panah */
+                );
+            margin-bottom: 20px;
+            margin-left: 913px;
+        }
+
+        .destinasi-kartu {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 20px;
         }
 
-        .kartu-wisata {
-            background-color: white;
+        .kartu {
+            background: #f0f1c5;
             border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 15px;
+            text-align: center;
+            transition: transform 0.3s;
         }
 
-        .kartu-wisata:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        .kartu a {
+            display: inline-block;
+            margin-top: 10px;
+            background-color: #f7f017A6;
+            color: #3e7b27;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
         }
 
-        .gambar-wisata {
-            height: 200px;
-            background-size: cover;
-            background-position: center;
+        .kartu:hover {
+            transform: scale(1.03);
         }
 
-        .konten-wisata {
-            padding: 20px;
-        }
-
-        .konten-wisata h3 {
-            color: #2c7a4a;
-            margin-bottom: 10px;
-        }
-
-        .konten-wisata p {
-            margin-bottom: 15px;
+        .kartu img {
+            width: 100%;
+            height: 180px;
+            /* kamu bisa ubah nilai ini sesuai kebutuhan */
+            object-fit: cover;
+            border-radius: 8px;
         }
 
         .lokasi-pengunjung {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 30px;
+            background: linear-gradient(#e7fbb4, #5cb338);
         }
 
         .bagian-lokasi,
@@ -299,7 +428,7 @@
             padding: 12px 15px;
             border: 1px solid #ddd;
             border-radius: 5px;
-             font-size: 1rem;
+            font-size: 1rem;
             transition: border-color 0.3s;
         }
 
@@ -359,78 +488,6 @@
 
         .tombol-kedua:hover {
             background-color: #e0e0e0;
-        }
-
-        .profil-judul {
-            background-color: #f7f700;
-            text-align: center;
-            padding: 20px 10px;
-            font-size: 2rem;
-            color: #064a1f;
-            font-weight: bold;
-            margin-top: 40px;
-        }
-
-        .wadah-profil-container{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-        .wadah-profil {
-            margin: 30px auto;
-            padding: 20px;
-            max-width: 1200px;
-            background: #eff9dd;
-            border-radius: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .tombol-panah {
-            font-size: 40px;
-            cursor: pointer;
-            color: #81c147;
-            user-select: none;
-        }
-
-        .kartu-profil {
-            text-align: center;
-            padding: 10px;
-            width: 30%;
-            background: white;
-            border-radius: 25px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            min-height: 280px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .kartu-profil img {
-            width: 120px;
-        }
-
-        .kartu-profil h3 {
-            margin: 15px 0 5px;
-            font-size: 1rem;
-            font-weight: bold;
-            color: #444;
-        }
-
-        .kartu-profil p {
-            margin: 0;
-            font-size: 0.9rem;
-            color: #222;
-        }
-
-        .kartu-profil p a {
-            color: #333;
-            text-decoration: underline;
         }
 
 
