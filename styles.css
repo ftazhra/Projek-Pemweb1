@@ -163,9 +163,10 @@
             background: orange;
             color: white;
             padding: 10px 20px;
+            width: 100%;
             font-size: 24px;
             font-weight: bold;
-            display: inline-block;
+            display: block;
             clip-path: polygon(0% 0%,
                     /* kiri atas */
                     calc(100% - 20px) 0%,
@@ -226,18 +227,15 @@
             background: #eff9dd;
             border-radius: 30px;
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 10px;
-            flex-wrap: wrap;
-
+            overflow-x: auto;
+            overflow-y: hidden;
+            gap: 20px;
+            
         }
 
-        .tombol-panah {
-            font-size: 40px;
-            cursor: pointer;
-            color: #81c147;
-            user-select: none;
+        .wadah-profil::-webkit-scrollbar {
+            display: none;
+            /* biar scroll bar ngilang */
         }
 
         .kartu-profil {
@@ -246,13 +244,22 @@
             width: 30%;
             background: white;
             border-radius: 25px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
             min-height: 280px;
+            min-width: 250px;
+            max-width: 280px;
+            flex-shrink: 0;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
 
+        }
+
+        .kartu-profil:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
 
         .kartu-profil img {
@@ -329,7 +336,7 @@
             padding: 10px 20px;
             font-size: 24px;
             font-weight: bold;
-            display: inline-block;
+            display: block;
             clip-path: polygon(20px 0%,
                     /* sisi kiri agak masuk */
                     100% 0%,
@@ -379,7 +386,7 @@
             height: 180px;
             /* kamu bisa ubah nilai ini sesuai kebutuhan */
             object-fit: cover;
-            border-radius: 8px;
+            border-radius: 10px;
         }
 
         .lokasi-pengunjung {
@@ -391,10 +398,11 @@
 
         .bagian-lokasi,
         .bagian-komentar {
-            background-color: white;
+            background-color: #f0f1c5;
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+
         }
 
         .bagian-lokasi h2,
