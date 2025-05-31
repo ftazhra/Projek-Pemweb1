@@ -230,7 +230,7 @@
             overflow-x: auto;
             overflow-y: hidden;
             gap: 20px;
-            
+
         }
 
         .wadah-profil::-webkit-scrollbar {
@@ -367,18 +367,25 @@
             transition: transform 0.3s;
         }
 
-        .kartu a {
-            display: inline-block;
+        .detail-btn {
+            border: none;
+            padding: 10px;
             margin-top: 10px;
-            background-color: #f7f017A6;
+            font-weight: 600;
+            background-color: #f8f011a6;
             color: #3e7b27;
             text-decoration: none;
             border-radius: 5px;
+            cursor: pointer;
             transition: 0.3s;
         }
 
         .kartu:hover {
             transform: scale(1.03);
+        }
+
+        .detail-btn:hover {
+            transform: scale(1.1)
         }
 
         .kartu img {
@@ -422,6 +429,19 @@
         .grup-formulir {
             margin-bottom: 20px;
         }
+
+        .bintang {
+            font-size: 24px;
+            color: #ccc;
+            /* default abu-abu */
+            cursor: pointer;
+            margin: 0 3px;
+        }
+
+        .rating .bintang.aktif {
+            color: gold;
+        }
+
 
         .grup-formulir label {
             display: block;
