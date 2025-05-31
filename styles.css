@@ -1,19 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
 
 :root {
-    --primary-color: #2e7d32;
-    --primary-dark: #1b5e20;
-    --primary-light: #81c784;
-    --secondary-color: #ff8f00;
-    --dark-color: #263238;
-    --light-color: #ffffff;
-    --white: #ffffff;
-    --black: #000000;
-    --gray: #757575;
-    --light-gray: #e0e0e0;
-    --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
-    --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
-    --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+  --primary-color: #2e7d32;
+  --primary-dark: #1b5e20;
+  --primary-light: #81c784;
+  --secondary-color: #ff8f00;
+  --accent-color: #ffd54f;
+  --dark-color: #263238;
+  --light-color: #ffffff;
+  --white: #ffffff;
+  --black: #000000;
+  --gray: #757575;
+  --light-gray: #f5f5f5;
+  --border-radius: 12px;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+  --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
 }
 
 * {
@@ -446,32 +449,63 @@ body {
 footer {
   background: var(--dark-color);
   color: var(--white);
-  padding: 80px 0 0;
+  padding: 60px 0 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-wave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="%231b5e20"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="%232e7d32"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%2381c784"/></svg>');
+  background-size: 1200px 100px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
 }
 
 .footer-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 40px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+}
+
+.footer-col {
+  margin-bottom: 30px;
+}
+
+.footer-logo-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
 }
 
 .footer-logo {
-  height: 100px;
-  margin-bottom: 20px;
+  height: 80px;
+  width: auto;
+  filter: brightness(0) invert(1);
 }
 
 .footer-col p {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.85);
   margin-bottom: 20px;
   line-height: 1.7;
+  font-size: 0.95rem;
 }
 
 .social-links {
   display: flex;
   gap: 15px;
+  margin-top: 20px;
 }
 
 .social-links a {
@@ -484,11 +518,13 @@ footer {
   background: rgba(255, 255, 255, 0.1);
   color: var(--white);
   transition: all 0.3s;
+  text-decoration: none;
 }
 
 .social-links a:hover {
   background: var(--primary-color);
   transform: translateY(-3px);
+  text-decoration: none;
 }
 
 .footer-col h3 {
@@ -496,6 +532,7 @@ footer {
   margin-bottom: 25px;
   position: relative;
   padding-bottom: 10px;
+  color: var(--primary-light);
 }
 
 .footer-col h3::after {
@@ -517,14 +554,25 @@ footer {
 }
 
 .footer-col ul li a {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.85);
   transition: all 0.3s;
   display: block;
+  text-decoration: none;
+  position: relative;
+  padding-left: 15px;
+}
+
+.footer-col ul li a::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--primary-light);
 }
 
 .footer-col ul li a:hover {
   color: var(--white);
-  padding-left: 5px;
+  padding-left: 20px;
+  text-decoration: none;
 }
 
 .contact-info {
@@ -536,32 +584,51 @@ footer {
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.85);
   transition: all 0.3s;
 }
 
 .contact-info i {
-  margin-top: 3px;
   color: var(--primary-color);
-  transition: color 0.3s ease-in-out;
-}
-
-.contact-info li:hover i {
-  color: var(--white);
+  min-width: 20px;
+  margin-top: 5px;
 }
 
 .contact-info li:hover {
   color: var(--white);
-  transform: translateX(5px);
+}
+
+.contact-info li:hover i {
+  color: var(--primary-light);
 }
 
 .footer-bottom {
   text-align: center;
-  padding: 20px 0;
+  padding: 25px 0;
   margin-top: 60px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.7);
   font-size: 0.9rem;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .footer-col {
+    padding: 0 15px;
+  }
+
+  .footer-bottom {
+    padding: 20px 15px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -580,4 +647,90 @@ footer {
   .kartu-destinasi {
     grid-template-columns: 1fr;
   }
+}
+
+/* CSS untuk Rating Bintang */
+.rating-container {
+  display: flex;
+  gap: 5px;
+  font-size: 24px;
+  margin: 10px 0;
+}
+
+.rating-container .star {
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.rating-container .star.active,
+.rating-container .star:hover {
+  color: gold;
+}
+
+/* CSS untuk Captcha */
+.captcha-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  gap: 10px;
+}
+
+.captcha-box {
+  background: #f0f0f0;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.refresh-captcha {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #2c7a4a;
+}
+
+
+/* CSS untuk Tampilan Komentar */
+.testimoni-box {
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .lokasi-pengunjung {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+  }
+
+  .kotak-sejarah-dan-testimoni {
+    flex-direction: column;
+  }
+
+  .testimoni-box {
+    width: 100%;
+  }
+}
+
+/* CSS untuk peta */
+#peta-container {
+  width: 100%;
+  height: 550px; /* Tinggi yang lebih besar */
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#peta-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
 }
