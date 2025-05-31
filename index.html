@@ -12,9 +12,12 @@
 <body>
     <header class="navigasi">
         <div class="logo-kiri">
-            <div class="logo-box"><img src="imgg/logo.png" alt="Logo 1" /></div>
-            <div class="logo-box"><img src="imgg/logo kabpaser.png" alt="Logo 2" /></div>
-            <div class="logo-box"><img src="imgg/dlh.png" alt="Logo DLH" class="logo-dlh" /></div>
+            <div class="logo-kiri">
+                <div class="logo-box box-a"><img src="imggg/logo.png" alt="Logo 1" /></div>
+                <div class="logo-box box-b"><img src="imggg/logo kabpaser.png" alt="Logo 2" /></div>
+                <div class="logo-box box-c"><img src="imggg/dlh.png" alt="Logo DLH" class="logo-dlh" /></div>
+            </div>
+
         </div>
 
         <nav class="menu">
@@ -52,120 +55,126 @@
                 selengkapnya</a>
         </div>
 
-        <div class="testimoni-box">
-            <!-- Komentar akan ditampilkan di sini melalui JavaScript -->
-            <div class="satu-testimoni">
-                <img src="https://img.icons8.com/ios-filled/50/4a4a4a/user.png" alt="user">
-                <div class="isi-testimoni">
-                    <strong>Indra</strong>
-                    <div class="bintang">★★★★★</div>
-                    <p>Setiap sudut Taman Kehati mengajarkan kita bahwa alam perlu dijaga, dihargai, dan diwariskan
-                        untuk generasi berikutnya.</p>
+        <div class="testimoni-container">
+            <button class="panah-vertikal panah-atas" aria-label="Geser ke atas">
+                ▲
+            </button>
+
+            <div class="testimoni-box" id="testimoni-scroll">
+                <div class="satu-testimoni">
+                    <img src="https://img.icons8.com/ios-filled/50/4a4a4a/user.png" alt="user" />
+                    <div class="isi-testimoni">
+                        <strong>Allegra</strong>
+                        <div class="bintang">★★★★★</div>
+                        <p>
+                            Setiap sudut Taman Kehati mengajarkan kita bahwa alam perlu dijaga,
+                            dihargai, dan diwariskan untuk generasi berikutnya.
+                        </p>
+                    </div>
                 </div>
-            </div>
-            <div class="satu-testimoni">
-                <img src="https://img.icons8.com/ios-filled/50/4a4a4a/user.png" alt="user">
-                <div class="isi-testimoni">
-                    <strong>Ft***ra</strong>
-                    <div class="bintang">★★★★★</div>
-                    <p>Taman Kehati bukan sekadar ruang hijau, tapi juga tempat belajar tentang pentingnya menjaga
-                        keanekaragaman hayati di sekitar kita.</p>
+                <div class="satu-testimoni">
+                    <img src="https://img.icons8.com/ios-filled/50/4a4a4a/user.png" alt="user" />
+                    <div class="isi-testimoni">
+                        <strong>Ft***ra</strong>
+                        <div class="bintang">★★★★★</div>
+                        <p>
+                            Taman Kehati bukan sekadar ruang hijau, tapi juga tempat belajar tentang
+                            pentingnya menjaga keanekaragaman hayati di sekitar kita.
+                        </p>
+                    </div>
                 </div>
+                <!-- Tambahkan testimoni lain sesuai kebutuhan -->
             </div>
+
+            <button class="panah-vertikal panah-bawah" aria-label="Geser ke bawah">
+                ▼
+            </button>
         </div>
     </div>
 
-    <div class="bagian-destinasi">
-        <h2>DESTINASI WISATA</h2>
-        <div class="kartu-destinasi">
-            <div class="kartu-wisata">
-                <div class="gambar-wisata" style="background-image: url(imgg/air\ terjun\ doyam\ seriam.jpg);">
+    <section class="isi-section" id="wisata">
+        <div class="judul-kuning">DESTINASI WISATA</div>
+        <div class="destinasi-kartu">
+            <div class="kartu">
+                <img src="imggg/air terjun doyam seriam.jpg" alt="Air Terjun Doyam Seriam">
+                <p>Air Terjun Doyam Seriam terletak di Desa Modang...</p>
+                <a class="tombol-lihat" href="Destinasi1.html">Lihat Selengkapnya</a>
+            </div>
+            <div class="kartu">
+                <img src="imggg/air terjun olo.jpg" alt="Air Terjun Olo">
+                <p>Air Terjun Doyam Dinding Olo terletak di Desa Modang, Kabupaten Paser...</p>
+            </div>
+            <div class="kartu">
+                <img src="imggg/puncak bukti DAR.jpg" alt="Puncak Bukit DAR">
+                <p>Puncak Bukit DAR di Desa Modang, Kecamatan Kuaro...</p>
+            </div>
+            <div class="kartu">
+                <img src="imggg/tugu desa kerta bumi.webp" alt="Tugu Desa Kerta Bumi">
+                <p>Tugu Desa Kerta Bumi adalah salah satu landmark...</p>
+            </div>
+            <div class="kartu">
+                <img src="imggg/konseversi mangrove.webp" alt="Konseversi Mangrove">
+                <p>Konservasi Mangrove Modang di Desa Modang, Kecamatan Kuaro...</p>
+            </div>
+            <div class="kartu">
+                <img src="imggg/sungai 21.webp" alt="Sungai 21">
+                <p>Sungai 21 Kertabumi adalah destinasi wisata alam di Desa Kerta Bumi...</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="latar-profil">
+        <header class="profil-judul">PROFIL PENGELOLA TAMAN KEHATI</header>
+
+        <div class="wadah-profil-container">
+            <!-- Tombol panah -->
+            <button class="panah panah-kiri">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+            </button>
+
+            <div class="wadah-profil" id="scroll-area">
+                <div class="kartu-profil">
+                    <img src="imggg/laki-laki.png" alt="avatar" />
+                    <h3>Syafrudin Anshari, ST, M.Ling</h3>
+                    <p><a href="#">19750225 200312 1 004</a></p>
+                    <p>Pejabat Fungsional Subkoordinator Taman Kehati</p>
                 </div>
-                <div class="konten-wisata">
-                    <h3>Air Terjun Dayam Seriam</h3>
-                    <p>terletak di Desa Modang ...</p>
-                    <a href="#" class="tombol-lihat">Lihat Selengkapnya</a>
+                <div class="kartu-profil">
+                    <img src="imggg/perempuan.png" alt="avatar" />
+                    <h3>Helda Zakiya Fitri, ST</h3>
+                    <p><a href="#">19960911 202421 2 035</a></p>
+                    <p>Staf DLH Bidang Tata Lingkungan</p>
+                </div>
+                <div class="kartu-profil">
+                    <img src="imggg/laki-laki.png" alt="avatar" />
+                    <h3>Syahrozi MR Pelenkahu, SE</h3>
+                    <p><a href="#">19940617 202521 1 020</a></p>
+                    <p>Staf DLH Bidang Tata Lingkungan</p>
+                </div>
+                <div class="kartu-profil">
+                    <img src="imggg/perempuan.png" alt="avatar" />
+                    <h3>Anik Maria, SE</h3>
+                    <p><a href="#">19840417 202521 2 020</a></p>
+                    <p>Staf DLH Bidang Tata Lingkungan</p>
+                </div>
+                <div class="kartu-profil">
+                    <img src="imggg/laki-laki.png" alt="avatar" />
+                    <h3>Muhammad Iqbal Alam</h3>
+                    <p>Staf DLH Bidang Tata Lingkungan</p>
                 </div>
             </div>
 
-            <div class="kartu-wisata">
-                <div class="gambar-wisata" style="background-image: url(imgg/tugu\ desa\ kerta\ bumi.webp)">
-                </div>
-                <div class="konten-wisata">
-                    <h3>Tugu Desa Kerta Bumi</h3>
-                    <p>adalah salah satu landmark yang terletak di Desa Kerta Bumi, Kecamatan Kuaro ...</p>
-                    <a href="#" class="tombol-lihat">Lihat Selengkapnya</a>
-                </div>
-            </div>
-
-            <div class="kartu-wisata">
-                <div class="gambar-wisata" style="background-image: url(imgg/air\ terjun\ olo.jpg);">
-                </div>
-                <div class="konten-wisata">
-                    <h3>Air Terjun Dayam Binding Olo</h3>
-                    <p>terletak di Desa Modang, Kabupaten Paser ...</p>
-                    <a href="#" class="tombol-lihat">Lihat Selengkapnya</a>
-                </div>
-            </div>
-
-            <div class="kartu-wisata">
-                <div class="gambar-wisata" style="background-image: url(imgg/konseversi\ mangrove.webp);">
-                </div>
-                <div class="konten-wisata">
-                    <h3>Konservasi Mangrove Modang</h3>
-                    <p>di Desa Modang, Kecamatan Kuaro, Kabupaten Paser ...</p>
-                    <a href="#" class="tombol-lihat">Lihat Selengkapnya</a>
-                </div>
-            </div>
-
-            <div class="kartu-wisata">
-                <div class="gambar-wisata" style="background-image: url(imgg/puncak\ bukti\ DAR.jpg);">
-                </div>
-                <div class="konten-wisata">
-                    <h3>Puncak Bukit DAR</h3>
-                    <p>di Desa Modang, Kecamatan Kuaro, Kabupaten Paser ...</p>
-                    <a href="#" class="tombol-lihat">Lihat Selengkapnya</a>
-                </div>
-            </div>
-
-            <div class="kartu-wisata">
-                <div class="gambar-wisata" style="background-image: url(imgg/sungai\ 21.webp);">
-                </div>
-                <div class="konten-wisata">
-                    <h3>Sungai 21 Kertabumi</h3>
-                    <p>adalah destinasi wisata alam yang terletak di Desa Kerta Bumi ...</p>
-                    <a href="#" class="tombol-lihat">Lihat Selengkapnya</a>
-                </div>
-            </div>
+            <button class="panah panah-kanan">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </button>
         </div>
     </div>
 
-    <header class="profil-judul">PROFIL PENGELOLA TAMAN KEHATI</header>
-    <div class="wadah-profil-container">
-        <div class="tombol-panah" id="panah-kiri">&#x25C0;</div>
-        <div class="wadah-profil" id="scroll-area">
-            <div class="kartu-profil">
-                <img src="https://img.icons8.com/3d-fluency/100/user-male-circle.png" alt="avatar" />
-                <h3>Syafrudin Anshari, ST, M.Ling</h3>
-                <p><a href="#">19750225 200312 1 004</a></p>
-                <p>Pejabat Fungsional Subkoordinator Taman Kehati</p>
-            </div>
-            <div class="kartu-profil">
-                <img src="https://img.icons8.com/3d-fluency/100/user-male-circle.png" alt="avatar" />
-                <h3>Helda Zakiya Fitri, ST</h3>
-                <p><a href="#">19960911 202421 2 035</a></p>
-                <p>Staf DLH Bidang Tata Lingkungan</p>
-            </div>
-            <div class="kartu-profil">
-                <img src="https://img.icons8.com/3d-fluency/100/user-male-circle.png" alt="avatar" />
-                <h3>Syahrozi MR Pelenkahu, SE</h3>
-                <p><a href="#">19940617 202521 1 020</a></p>
-                <p>Staf DLH Bidang Tata Lingkungan</p>
-            </div>
-        </div>
-        <div class="tombol-panah" id="panah-kanan">&#x25B6;</div>
-    </div>
-
+    <!-- Bagian Lokasi/Peta-->
     <div class="lokasi-pengunjung">
         <div class="bagian-lokasi">
             <h2>LOKASI DESA MODANG</h2>
@@ -198,7 +207,7 @@
                     <input type="hidden" id="rating-value" value="0">
                 </div>
 
-                <!-- Captcha -->
+                <!-- Bagian Captcha -->
                 <div class="grup-formulir">
                     <label>Verifikasi</label>
                     <div class="captcha-container">
@@ -225,14 +234,15 @@
             </div>
         </div>
     </div>
-    <!-- Footer -->
+
+    <!-- Bagian Footer -->
     <footer>
         <div class="footer-wave"></div>
         <div class="container">
             <div class="footer-container">
                 <div class="footer-col">
                     <div class="footer-logo-container">
-                        <img src="imgg/dlh.png" alt="Logo Dinas Lingkungan Hidup" class="footer-logo" loading="lazy">
+                        <img src="imggg/dlh.png" alt="Logo Dinas Lingkungan Hidup" class="footer-logo" loading="lazy">
                     </div>
                     <p>Ruang hidup alami yang menyatukan flora, fauna, dan kearifan lokal menjadi warisan penting untuk
                         generasi mendatang.</p>

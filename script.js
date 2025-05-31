@@ -61,7 +61,21 @@ document.addEventListener("DOMContentLoaded", function () {
     newComment.className = "satu-testimoni";
 
     // Jika anonim, ganti nama menjadi "Anonim"
-    const displayName = isAnonymous ? "Anonim" : name;
+    function maskName(name) {
+      if (name.length <= 2) {
+        // Kalau nama cuma 2 huruf atau kurang, misal "Al", jadinya "A*"
+        return name[0] + "*".repeat(name.length - 1);
+      } else {
+        // Ambil huruf pertama dan terakhir, ganti yang di tengah jadi bintang
+        const firstChar = name[0];
+        const lastChar = name[name.length - 1];
+        const middleStars = "*".repeat(name.length - 2);
+        return firstChar + middleStars + lastChar;
+      }
+    }
+
+    // Contoh pemakaian:
+    const displayName = isAnonymous ? maskName(name) : name;
 
     // Konversi rating ke bintang
     let stars = "";
@@ -162,5 +176,45 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector(".bagian-lokasi").scrollIntoView({
       behavior: "smooth",
     });
+  });
+});
+
+// 3. Fitur Pergeseran Profil Pengelola Taman Kehati
+const scrollArea = document.getElementById('scroll-area');
+const panahKiri = document.querySelector('.panah-kiri');
+const panahKanan = document.querySelector('.panah-kanan');
+
+panahKiri.addEventListener('click', () => {
+  scrollArea.scrollBy({
+    left: -300,
+    behavior: 'smooth'
+  });
+});
+
+panahKanan.addEventListener('click', () => {
+  scrollArea.scrollBy({
+    left: 300,
+    behavior: 'smooth'
+  });
+});
+
+// 4. Fitur Pergeseran Komentar
+const testimoniBox = document.getElementById('testimoni-scroll');
+const panahAtas = document.querySelector('.panah-atas');
+const panahBawah = document.querySelector('.panah-bawah');
+
+const scrollStep = 120; // jumlah pixel per klik, sesuaikan dengan tinggi testimoni
+
+panahAtas.addEventListener('click', () => {
+  testimoniBox.scrollBy({
+    top: -scrollStep,
+    behavior: 'smooth',
+  });
+});
+
+panahBawah.addEventListener('click', () => {
+  testimoniBox.scrollBy({
+    top: scrollStep,
+    behavior: 'smooth',
   });
 });
