@@ -38,7 +38,7 @@ body {
 }
 
 .kepala {
-  background-image: url(imggg/bg.jpeg);
+  background-image: url(imggg/background.jpeg);
   background-size: cover;
   background-position: center;
   padding: 150px 30px;
@@ -151,11 +151,28 @@ body {
   text-decoration: none;
   font-size: 1.1rem;
   font-weight: 500;
-  transition: color 0.3s ease;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.menu a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #ffff00;
+  transition: width 0.3s ease;
 }
 
 .menu a:hover {
   color: #ffff00;
+  transform: translateY(-2px);
+}
+
+.menu a:hover::after {
+  width: 100%;
 }
 
 .lokasi-btn {
@@ -164,7 +181,19 @@ body {
   padding: 8px 14px;
   border-radius: 20px;
   font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
+.lokasi-btn:hover {
+  background-color: #ffd700; /* sedikit lebih gelap */
+  color: white !important;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
 
 .kotak-sejarah-dan-testimoni {
   display: flex;
@@ -203,28 +232,22 @@ body {
 }
 
 .sejarah-desa p {
-  color: #100f0f;
-  font-size: 1.1rem;
+  color: #16610E;
+  font-size: 1.03rem;
   text-align: justify;
   margin-bottom: 15px;
-  font-weight: bolder;
-}
-
-.link-selengkapnya {
-  color: #100f0f;
-  font-weight: bold;
-  text-decoration: underline;
+  font-weight: bold
 }
 
 /* Komentar Disamping Sejarah Desa Modang */
 .testimoni-container {
   position: relative;
-  width: 360px;
+  width: 400px;
   margin: 0 auto;
   background: none;
   border-radius: 10px;
   padding: 20px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 1);
   /* sesuaikan dengan lebar testimoni */
   margin: 0 auto;
   display: flex;
@@ -233,11 +256,9 @@ body {
 }
 
 .testimoni-box {
-  background-color: #fefee0;
   border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   overflow-y: auto;
-  max-height: 400px;
+  max-height: 350px;
   width: 100%;
   padding: 15px 10px;
   display: flex;
@@ -248,7 +269,7 @@ body {
 
 .satu-testimoni {
   display: flex;
-  background: whitesmoke;
+  background: #fefee0;
   flex-direction: column;
   gap: 10px;
   padding: 10px;
@@ -611,6 +632,7 @@ body {
 footer {
   background: var(--dark-color);
   color: var(--white);
+  top: 10px;
   padding: 60px 0 0;
   position: relative;
   overflow: hidden;
