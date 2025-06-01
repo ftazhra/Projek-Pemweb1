@@ -582,6 +582,7 @@ body {
 
 .kartu-profil img {
   width: 120px;
+  border-radius: 18px;
 }
 
 .kartu-profil h3 {
