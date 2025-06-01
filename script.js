@@ -1,19 +1,27 @@
-// 1. Fungsi untuk peta interaktif
+//Lihat Selengkapnya destinasi
+const buttons = document.querySelectorAll(".detail-btn");
+
+buttons.forEach(button => {
+  button.addEventListener("click", () => {
+    window.location.href = "destinasi.html";
+  });
+});
+
 document.addEventListener("DOMContentLoaded", function () {
   // Set tahun saat ini di footer
-  document.getElementById("current-year").textContent =
-    new Date().getFullYear();
+  document.getElementById("current-year").textContent = new Date().getFullYear();
 
   // 2. Fitur komentar dengan tampilan di testimoni box
   const komentarForm = document.querySelector(".formulir-komentar");
   const tombolKirim = document.getElementById("tombol-kirim");
   const tombolReset = document.getElementById("tombol-reset");
-  const testimoniBox = document.querySelector(".testimoni-box");
+
+  // Ganti nama variabel agar tidak bentrok:
+  const testimoniBoxInDom = document.querySelector(".testimoni-box");
 
   // Fungsi untuk membuat kode CAPTCHA acak
   function generateCaptcha() {
-    const chars =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     let captcha = "";
     for (let i = 0; i < 5; i++) {
       captcha += chars.charAt(Math.floor(Math.random() * chars.length));
@@ -26,12 +34,10 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("captcha-display").textContent = currentCaptcha;
 
   // Refresh CAPTCHA
-  document
-    .getElementById("refresh-captcha")
-    .addEventListener("click", function () {
-      currentCaptcha = generateCaptcha();
-      document.getElementById("captcha-display").textContent = currentCaptcha;
-    });
+  document.getElementById("refresh-captcha").addEventListener("click", function () {
+    currentCaptcha = generateCaptcha();
+    document.getElementById("captcha-display").textContent = currentCaptcha;
+  });
 
   // Fitur rating bintang
   const stars = document.querySelectorAll(".star");
@@ -63,10 +69,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // Jika anonim, ganti nama menjadi "Anonim"
     function maskName(name) {
       if (name.length <= 2) {
-        // Kalau nama cuma 2 huruf atau kurang, misal "Al", jadinya "A*"
         return name[0] + "*".repeat(name.length - 1);
       } else {
-        // Ambil huruf pertama dan terakhir, ganti yang di tengah jadi bintang
         const firstChar = name[0];
         const lastChar = name[name.length - 1];
         const middleStars = "*".repeat(name.length - 2);
@@ -74,29 +78,28 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
 
-    // Contoh pemakaian:
     const displayName = isAnonymous ? maskName(name) : name;
 
     // Konversi rating ke bintang
-    let stars = "";
+    let starsStr = "";
     for (let i = 1; i <= 5; i++) {
-      stars += i <= rating ? "★" : "☆";
+      starsStr += i <= rating ? "★" : "☆";
     }
 
     newComment.innerHTML = `
-                    <img src="https://img.icons8.com/ios-filled/50/4a4a4a/user.png" alt="user">
-                    <div class="isi-testimoni">
-                        <strong>${displayName}</strong>
-                        <div class="bintang">${stars}</div>
-                        <p>${comment}</p>
-                    </div>
-                `;
+      <img src="https://img.icons8.com/ios-filled/50/4a4a4a/user.png" alt="user">
+      <div class="isi-testimoni">
+          <strong>${displayName}</strong>
+          <div class="bintang">${starsStr}</div>
+          <p>${comment}</p>
+      </div>
+    `;
 
     // Tambahkan komentar baru di atas komentar yang sudah ada
-    testimoniBox.insertBefore(newComment, testimoniBox.firstChild);
+    testimoniBoxInDom.insertBefore(newComment, testimoniBoxInDom.firstChild);
   }
 
-  // Event listener untuk tombol kirim
+  // Event listener tombol kirim
   tombolKirim.addEventListener("click", function () {
     const name = document.getElementById("nama").value;
     const comment = document.getElementById("ulasan").value;
@@ -104,28 +107,23 @@ document.addEventListener("DOMContentLoaded", function () {
     const isAnonymous = document.getElementById("anonim").checked;
     const captchaInput = document.getElementById("captcha-input").value;
 
-    // Validasi form
     if (!name) {
       alert("Harap masukkan nama Anda");
       return;
     }
-
     if (rating === 0) {
       alert("Harap berikan rating");
       return;
     }
-
     if (captchaInput !== currentCaptcha) {
       alert("Kode CAPTCHA tidak sesuai!");
       return;
     }
-
     if (!comment) {
       alert("Harap masukkan komentar");
       return;
     }
 
-    // Tambahkan komentar
     addComment(name, comment, rating, isAnonymous);
 
     // Reset form
@@ -134,50 +132,38 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("captcha-input").value = "";
     document.getElementById("anonim").checked = false;
 
-    // Reset rating
     stars.forEach((star) => {
       star.classList.remove("active");
       star.textContent = "☆";
     });
     ratingValue.value = "0";
 
-    // Generate CAPTCHA baru
     currentCaptcha = generateCaptcha();
     document.getElementById("captcha-display").textContent = currentCaptcha;
 
     alert("Komentar berhasil dikirim!");
   });
 
-  // Event listener untuk tombol reset
+  // Event listener tombol reset
   tombolReset.addEventListener("click", function () {
     document.getElementById("nama").value = "";
     document.getElementById("ulasan").value = "";
     document.getElementById("captcha-input").value = "";
     document.getElementById("anonim").checked = false;
 
-    // Reset rating
     stars.forEach((star) => {
       star.classList.remove("active");
       star.textContent = "☆";
     });
     ratingValue.value = "0";
 
-    // Generate CAPTCHA baru
     currentCaptcha = generateCaptcha();
     document.getElementById("captcha-display").textContent = currentCaptcha;
   });
 
-  // 7. Mirror ke platform di halaman kontak
-  // Link sudah diset di HTML dengan target="_blank" untuk membuka di tab baru
-
-  // Fitur tambahan: Auto scroll ke peta saat tombol lokasi diklik
-  document.querySelector(".lokasi-btn").addEventListener("click", function (e) {
-    e.preventDefault();
-    document.querySelector(".bagian-lokasi").scrollIntoView({
-      behavior: "smooth",
-    });
-  });
 });
+
+ 
 
 // 3. Fitur Pergeseran Profil Pengelola Taman Kehati
 const scrollArea = document.getElementById('scroll-area');
@@ -199,21 +185,22 @@ panahKanan.addEventListener('click', () => {
 });
 
 // 4. Fitur Pergeseran Komentar
-const testimoniBox = document.getElementById('testimoni-scroll');
+// Ganti nama variabel agar tidak bentrok dengan yang di dalam DOMContentLoaded
+const testimoniScrollBox = document.getElementById('testimoni-scroll');
 const panahAtas = document.querySelector('.panah-atas');
 const panahBawah = document.querySelector('.panah-bawah');
 
 const scrollStep = 120; // jumlah pixel per klik, sesuaikan dengan tinggi testimoni
 
 panahAtas.addEventListener('click', () => {
-  testimoniBox.scrollBy({
+  testimoniScrollBox.scrollBy({
     top: -scrollStep,
     behavior: 'smooth',
   });
 });
 
 panahBawah.addEventListener('click', () => {
-  testimoniBox.scrollBy({
+  testimoniScrollBox.scrollBy({
     top: scrollStep,
     behavior: 'smooth',
   });

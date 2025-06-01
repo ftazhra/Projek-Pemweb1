@@ -25,6 +25,10 @@
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
 }
+/*Efek scroll */
+html{
+  scroll-behavior: smooth;
+}
 
 body {
   background-color: #f5f5f5;
@@ -338,18 +342,24 @@ body {
   transition: transform 0.3s;
 }
 
-.kartu a {
-  display: inline-block;
+.detail-btn {
+  border: rgb(232, 232, 80) solid;
   margin-top: 10px;
   background-color: #f7f017A6;
   color: #3e7b27;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 10px;
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: 10px;
   transition: 0.3s;
 }
 
 .kartu:hover {
   transform: scale(1.03);
+}
+.detail-btn:hover{
+  transform:scale(1.1)
 }
 
 .kartu img {
