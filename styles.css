@@ -203,7 +203,7 @@ body {
 .kotak-sejarah-dan-testimoni {
   display: flex;
   justify-content: space-between;
-  background: linear-gradient(#5cb338, #e7fbb4);
+  background: linear-gradient(#4a972a, #dcff82);
   padding: 40px;
   gap: 30px;
   flex-wrap: wrap;
@@ -237,7 +237,7 @@ body {
 }
 
 .sejarah-desa p {
-  color: #16610E;
+  color: #0f2a02;
   font-size: 1.03rem;
   text-align: justify;
   margin-bottom: 15px;
@@ -341,7 +341,7 @@ body {
 
 .isi-section {
   padding: 50px 30px;
-  background: linear-gradient(#e7fbb4, #5cb338);
+  background: linear-gradient( #dcff82,#4a972a);
 }
 
 .judul-kuning {
@@ -374,16 +374,21 @@ body {
 }
 
 .kartu {
+  display:flex;
+  flex-direction: column;
+  justify-content: start;
   background: #f0f1c5;
   border-radius: 10px;
   padding: 15px;
   text-align: center;
+  height: 100%;
   transition: transform 0.3s;
 }
 
 .detail-btn {
   border: rgb(232, 232, 80) solid;
-  margin-top: 10px;
+  margin-top: auto;
+  display: inline-block;
   background-color: #f7f017a6;
   color: #3e7b27;
   font-weight: 600;
@@ -415,7 +420,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 30px;
-  background: linear-gradient(#e7fbb4, #5cb338);
+  background: linear-gradient( #dcff82,#4a972a);
 } 
 
 .bagian-lokasi,
@@ -521,7 +526,7 @@ body {
 
 /* Profil Pengelola Taman Kehati */
 .latar-profil {
-  background: linear-gradient(to bottom, #5cb338, #e7fbb4);
+  background: linear-gradient(to bottom,#4a972a, #dcff82);
   padding: 50px 0;
   margin-top: -100px;
 }
