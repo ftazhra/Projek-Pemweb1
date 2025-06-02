@@ -1,7 +1,7 @@
 //Lihat Selengkapnya destinasi
 const buttons = document.querySelectorAll(".detail-btn");
 
-buttons.forEach(button => {
+buttons.forEach((button) => {
   button.addEventListener("click", () => {
     window.location.href = "destinasi.html";
   });
@@ -9,7 +9,8 @@ buttons.forEach(button => {
 
 document.addEventListener("DOMContentLoaded", function () {
   // Set tahun saat ini di footer
-  document.getElementById("current-year").textContent = new Date().getFullYear();
+  document.getElementById("current-year").textContent =
+    new Date().getFullYear();
 
   // 2. Fitur komentar dengan tampilan di testimoni box
   const komentarForm = document.querySelector(".formulir-komentar");
@@ -21,7 +22,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Fungsi untuk membuat kode CAPTCHA acak
   function generateCaptcha() {
-    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    const chars =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     let captcha = "";
     for (let i = 0; i < 5; i++) {
       captcha += chars.charAt(Math.floor(Math.random() * chars.length));
@@ -34,10 +36,12 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("captcha-display").textContent = currentCaptcha;
 
   // Refresh CAPTCHA
-  document.getElementById("refresh-captcha").addEventListener("click", function () {
-    currentCaptcha = generateCaptcha();
-    document.getElementById("captcha-display").textContent = currentCaptcha;
-  });
+  document
+    .getElementById("refresh-captcha")
+    .addEventListener("click", function () {
+      currentCaptcha = generateCaptcha();
+      document.getElementById("captcha-display").textContent = currentCaptcha;
+    });
 
   // Fitur rating bintang
   const stars = document.querySelectorAll(".star");
@@ -160,48 +164,99 @@ document.addEventListener("DOMContentLoaded", function () {
     currentCaptcha = generateCaptcha();
     document.getElementById("captcha-display").textContent = currentCaptcha;
   });
-
 });
 
- 
-
 // 3. Fitur Pergeseran Profil Pengelola Taman Kehati
-const scrollArea = document.getElementById('scroll-area');
-const panahKiri = document.querySelector('.panah-kiri');
-const panahKanan = document.querySelector('.panah-kanan');
+const scrollArea = document.getElementById("scroll-area");
+const panahKiri = document.querySelector(".panah-kiri");
+const panahKanan = document.querySelector(".panah-kanan");
 
-panahKiri.addEventListener('click', () => {
+panahKiri.addEventListener("click", () => {
   scrollArea.scrollBy({
     left: -300,
-    behavior: 'smooth'
+    behavior: "smooth",
   });
 });
 
-panahKanan.addEventListener('click', () => {
+panahKanan.addEventListener("click", () => {
   scrollArea.scrollBy({
     left: 300,
-    behavior: 'smooth'
+    behavior: "smooth",
   });
 });
 
 // 4. Fitur Pergeseran Komentar
 // Ganti nama variabel agar tidak bentrok dengan yang di dalam DOMContentLoaded
-const testimoniScrollBox = document.getElementById('testimoni-scroll');
-const panahAtas = document.querySelector('.panah-atas');
-const panahBawah = document.querySelector('.panah-bawah');
+const testimoniScrollBox = document.getElementById("testimoni-scroll");
+const panahAtas = document.querySelector(".panah-atas");
+const panahBawah = document.querySelector(".panah-bawah");
 
 const scrollStep = 120; // jumlah pixel per klik, sesuaikan dengan tinggi testimoni
 
-panahAtas.addEventListener('click', () => {
+panahAtas.addEventListener("click", () => {
   testimoniScrollBox.scrollBy({
     top: -scrollStep,
-    behavior: 'smooth',
+    behavior: "smooth",
   });
 });
 
-panahBawah.addEventListener('click', () => {
+panahBawah.addEventListener("click", () => {
   testimoniScrollBox.scrollBy({
     top: scrollStep,
-    behavior: 'smooth',
+    behavior: "smooth",
+  });
+});
+
+// Fungsi untuk memuat data pengelola dari JSON
+async function loadPengelolaData() {
+  try {
+    const response = await fetch("data.json");
+    const data = await response.json();
+    displayPengelola(data.pengelola);
+  } catch (error) {
+    console.error("Gagal memuat data pengelola:", error);
+  }
+}
+
+// Fungsi untuk menampilkan data pengelola
+function displayPengelola(pengelola) {
+  const container = document.getElementById("scroll-area");
+
+  pengelola.forEach((orang) => {
+    const card = document.createElement("div");
+    card.className = "kartu-profil";
+
+    card.innerHTML = `
+            <img src="${orang.foto}" alt="avatar" />
+            <h3>${orang.nama}</h3>
+            ${orang.nip ? `<p><a href="#">${orang.nip}</a></p>` : ""}
+            <p>${orang.jabatan}</p>
+        `;
+
+    container.appendChild(card);
+  });
+}
+
+// Panggil fungsi saat halaman dimuat
+document.addEventListener("DOMContentLoaded", () => {
+  loadPengelolaData();
+
+  // Kode untuk panah scroll tetap sama
+  const scrollArea = document.getElementById("scroll-area");
+  const panahKiri = document.querySelector(".panah-kiri");
+  const panahKanan = document.querySelector(".panah-kanan");
+
+  panahKiri.addEventListener("click", () => {
+    scrollArea.scrollBy({
+      left: -300,
+      behavior: "smooth",
+    });
+  });
+
+  panahKanan.addEventListener("click", () => {
+    scrollArea.scrollBy({
+      left: 300,
+      behavior: "smooth",
+    });
   });
 });

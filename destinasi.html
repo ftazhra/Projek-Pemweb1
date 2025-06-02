@@ -1,11 +1,707 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Air Terjun Doyam Dinding Olo - Desa Modang</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Gaya dasar dari halaman utama */
+        :root {
+            --primary-color: #5cb338;
+            --primary-dark: #1b5e20;
+            --primary-light: #5cb338;
+            --secondary-color: #ff8f00;
+            --accent-color: #ffd54f;
+            --dark-color: #263238;
+            --light-color: #ffffff;
+            --white: #ffffff;
+            --black: #000000;
+            --gray: #757575;
+            --light-gray: #f5f5f5;
+            --border-radius: 12px;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+            --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.15);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Montserrat", sans-serif;
+        }
+
+        body {
+            background: #5cb338;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .navigasi {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background-color: rgba(0, 0, 0, 0.6);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-kiri {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+        }
+
+        .logo-box {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            overflow: hidden;
+        }
+
+        .logo-box img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .box-a {
+            width: 70px;
+            height: 70px;
+            margin-top: -3px;
+            margin-right: -10px;
+        }
+
+        .box-b {
+            width: 50px;
+            height: 50px;
+            margin-right: 1px;
+        }
+
+        .box-c {
+            width: 70px;
+            height: 70px;
+            margin-top: -17px;
+        }
+
+        .menu {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .menu a::after {
+            content: "";
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background-color: #ffff00;
+            transition: width 0.3s ease;
+        }
+
+        .menu a:hover {
+            color: #ffff00;
+            transform: translateY(-2px);
+        }
+
+        .menu a:hover::after {
+            width: 100%;
+        }
+
+        .menu a.lokasi-btn::after {
+            content: none;
+            display: none;
+        }
+
+        .lokasi-btn {
+            background-color: #ffff00;
+            color: black !important;
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .lokasi-btn:hover {
+            background-color: #ffff00;
+            color: #5cb338 !important;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Konten destinasi */
+        .destinasi-container {
+            max-width: 1200px;
+            margin: 120px auto 50px;
+            padding: 20px;
+        }
+
+        .destinasi-header {
+            background-color: #f0f1c5;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow-lg);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .destinasi-title {
+            color: var(--primary-dark);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .destinasi-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-dark), #5cb338);
+            border-radius: 2px;
+        }
+
+        .destinasi-description {
+            color: var(--dark-color);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: justify;
+            max-width: 900px;
+            margin: 0 auto 25px;
+        }
+
+        .destinasi-highlight {
+            background-color: var(--accent-color);
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            display: inline-block;
+            margin: 10px 0;
+        }
+
+        .divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary-dark), transparent);
+            margin: 30px 0;
+        }
+
+        /* Gallery */
+        .gallery-section {
+            background-color: #f0f1c5;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--primary-dark);
+            font-size: 2rem;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: transform 0.3s ease;
+            height: 250px;
+            position: relative;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.1);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            font-size: 0.9rem;
+            text-align: center;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: var(--white);
+            padding: 60px 0 0;
+            position: relative;
+            overflow: hidden;
+            margin-top: 50px;
+        }
+
+        .footer-wave {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="%23e7fbb4"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="%23e7fbb4"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="%235cb338"/></svg>');
+            background-size: 1200px 100px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-col {
+            margin-bottom: 30px;
+        }
+
+        .footer-logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo {
+            height: 80px;
+            width: auto;
+            filter: brightness(0) invert(1);
+        }
+
+        .footer-col p {
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 20px;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+            text-decoration: none;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+            color: var(--primary-light);
+        }
+
+        .footer-col h3::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--primary-color);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 15px;
+        }
+
+        .footer-col ul li a {
+            color: rgba(255, 255, 255, 0.85);
+            transition: all 0.3s;
+            display: block;
+            text-decoration: none;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .footer-col ul li a::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--primary-light);
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+            padding-left: 20px;
+            text-decoration: none;
+        }
+
+        .contact-info {
+            list-style: none;
+        }
+
+        .contact-info li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            color: rgba(255, 255, 255, 0.85);
+            transition: all 0.3s;
+        }
+
+        .contact-info i {
+            color: var(--primary-color);
+            min-width: 20px;
+            margin-top: 5px;
+        }
+
+        .contact-info li:hover {
+            color: var(--white);
+        }
+
+        .contact-info li:hover i {
+            color: var(--primary-light);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 25px 0;
+            margin-top: 60px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom p {
+            margin: 0;
+        }
+
+        /* Responsif */
+        @media (max-width: 768px) {
+            .destinasi-container {
+                margin-top: 100px;
+                padding: 10px;
+            }
+
+            .destinasi-header {
+                padding: 20px;
+            }
+
+            .destinasi-title {
+                font-size: 2rem;
+            }
+
+            .gallery-container {
+                grid-template-columns: 1fr;
+            }
+
+            .menu {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        /* Tombol kembali */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .back-btn:hover {
+            background-color: #e65100;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .back-btn i {
+            margin-right: 8px;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>p</h1>
+    <!-- Header Navigasi -->
+    <header class="navigasi">
+        <div class="logo-kiri">
+            <div class="logo-box box-a"><img src="imggg/logo.png" alt="Logo 1" /></div>
+            <div class="logo-box box-b"><img src="imggg/logo kabpaser.png" alt="Logo 2" /></div>
+            <div class="logo-box box-c"><img src="imggg/dlh.png" alt="Logo DLH" class="logo-dlh" /></div>
+        </div>
+
+        <nav class="menu">
+            <a href="index.html#home">Home</a>
+            <a href="index.html#destinasi">Destinasi Wisata</a>
+            <a href="index.html#kegiatan">Kegiatan</a>
+            <a href="index.html#kontak">Kontak</a>
+            <a href="index.html#lokasi" class="lokasi-btn">Lokasi Desa Modang</a>
+        </nav>
+    </header>
+
+    <!-- Konten Utama Destinasi -->
+    <div class="destinasi-container">
+        <!-- Tombol kembali -->
+        <a href="index.html#destinasi" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Kembali ke Destinasi
+        </a>
+
+        <!-- Header Destinasi -->
+        <div class="destinasi-header">
+            <h1 class="destinasi-title">Air Terjun Doyam Dinding Olo</h1>
+            <p class="destinasi-description">
+                Air Terjun Doyam Dinding Olo terletak di Desa Modang, Kabupaten Paser, Kalimantan Timur yang menyimpan
+                kisah serta keindahan alam yang memikat. Menurut cerita lama, tempat ini dahulu dipercaya sebagai lokasi
+                turunnya para bidadari untuk mandi. Di masa lampau, konon terdapat sebuah goa yang kini tertutup dan
+                djuga oleh alam. Goa tersebut diyakinî pernah digunakan sebagai tempat menyembunyikan harta bernilai
+                historis pada masa penjajahan Belanda.
+            </p>
+            <p class="destinasi-description">
+                Nama "Dinding Olo" sendiri memiliki arti "dinding hari", karena saat sore hari sektiar pukul 3, area di
+                bawah air terjun mulai gelap matahari tertutup oleh tebing dan air terjun, menciptakan suasana seolah
+                hari telah berganti malam. Untuk mencapai lokasi, pengunjung harus menempuh jalur setapak sepanjang 700
+                meter yang dikelllingî hutan lebat nan hijau.
+            </p>
+
+            <div class="destinasi-highlight">
+                <i class="fas fa-map-marker-alt"></i> Lokasi: Desa Modang, Kabupaten Paser, Kalimantan Timur
+            </div>
+
+            <div class="destinasi-highlight">
+                <i class="fas fa-hiking"></i> Akses: Jalur setapak 700 meter melalui hutan
+            </div>
+
+            <div class="destinasi-highlight">
+                <i class="fas fa-clock"></i> Waktu Terbaik: Sore hari sekitar pukul 3
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Gallery -->
+        <div class="gallery-section">
+            <h2 class="section-title">GALLERY Flora dan Fauna</h2>
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <img src="imggg/airterjunolo1.jpg" alt="Air Terjun Doyam Dinding Olo" class="gallery-img">
+                    <div class="gallery-caption">Pemandangan utama air terjun</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="imggg/air terjun olo.jpg" alt="Jalur menuju air terjun" class="gallery-img">
+                    <div class="gallery-caption">Jalur menuju air terjun</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="imggg/kawasanolo.jpeg" alt="Hutan sekitar air terjun" class="gallery-img">
+                    <div class="gallery-caption">Hutan hijau di sekitar area</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="imggg/picture1.jpg" alt="Hutan sekitar air terjun" class="gallery-img">
+                    <div class="gallery-caption">Hutan hijau di sekitar area</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="imggg/picture2.jpg" alt="Hutan sekitar air terjun" class="gallery-img">
+                    <div class="gallery-caption">Hutan hijau di sekitar area</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="imggg/picture3.jpg" alt="Hutan sekitar air terjun" class="gallery-img">
+                    <div class="gallery-caption">Hutan hijau di sekitar area</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="imggg/picture4.jpg" alt="Hutan sekitar air terjun" class="gallery-img">
+                    <div class="gallery-caption">Hutan hijau di sekitar area</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="imggg/picture5.jpg" alt="Hutan sekitar air terjun" class="gallery-img">
+                    <div class="gallery-caption">Hutan hijau di sekitar area</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="imggg/picture6.jpg" alt="Hutan sekitar air terjun" class="gallery-img">
+                    <div class="gallery-caption">Hutan hijau di sekitar area</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="imggg/picture7.jpg" alt="Hutan sekitar air terjun" class="gallery-img">
+                    <div class="gallery-caption">Hutan hijau di sekitar area</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="imggg/picture8.jpg" alt="Hutan sekitar air terjun" class="gallery-img">
+                    <div class="gallery-caption">Hutan hijau di sekitar area</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="imggg/picture9.jpg" alt="Hutan sekitar air terjun" class="gallery-img">
+                    <div class="gallery-caption">Hutan hijau di sekitar area</div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-wave"></div>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <div class="footer-logo-container">
+                        <img src="imggg/dlh.png" alt="Logo Dinas Lingkungan Hidup" class="footer-logo" loading="lazy">
+                    </div>
+                    <p>Ruang hidup alami yang menyatukan flora, fauna, dan kearifan lokal menjadi warisan penting untuk
+                        generasi mendatang.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3 style="color: whitesmoke;">Tautan Cepat</h3>
+                    <ul>
+                        <li><a href="index.html#home">Beranda</a></li>
+                        <li><a href="index.html#tentang">Tentang Desa</a></li>
+                        <li><a href="index.html#destinasi">Destinasi Wisata</a></li>
+                        <li><a href="index.html#kegiatan">Kegiatan</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3 style="color: whitesmoke;">Informasi</h3>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Syarat & Ketentuan</a></li>
+                        <li><a href="#">Kebijakan Privasi</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3 style="color: whitesmoke;">Kontak Kami</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Dinas Lingkungan Hidup, Bangsa KM.5, Komp. Perkantoran Gedung E Lantai 2 Kav. A Tanah
+                                Grogot Kab. Paser Kode Pos 76251</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+62 852-2021-6894</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>dlh@paserkab.go.id</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> Tata Lingkungan, Dinas Lingkungan Hidup - Hak Cipta
+                    Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Set tahun saat ini di footer
+        document.getElementById("current-year").textContent = new Date().getFullYear();
+    </script>
 </body>
+
 </html>

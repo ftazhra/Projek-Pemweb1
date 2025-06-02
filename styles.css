@@ -55,7 +55,6 @@ body {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.4);
-  /* efek gelap transparan */
   z-index: 1;
 }
 
@@ -199,7 +198,6 @@ body {
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
-
 .kotak-sejarah-dan-testimoni {
   display: flex;
   justify-content: space-between;
@@ -222,17 +220,13 @@ body {
   font-size: 24px;
   font-weight: bold;
   display: block;
-  clip-path: polygon(0% 0%,
-      /* kiri atas */
-      calc(100% - 20px) 0%,
-      /* sisi kanan agak masuk */
-      100% 50%,
-      /* ujung panah kanan */
-      calc(100% - 20px) 100%,
-      /* sisi kanan agak masuk */
-      0% 100%
-      /* kiri bawah */
-    );
+  clip-path: polygon(
+    0% 0%,
+    /* kiri atas */ calc(100% - 20px) 0%,
+    /* sisi kanan agak masuk */ 100% 50%,
+    /* ujung panah kanan */ calc(100% - 20px) 100%,
+    /* sisi kanan agak masuk */ 0% 100% /* kiri bawah */
+  );
   margin-bottom: 20px;
 }
 
@@ -241,7 +235,7 @@ body {
   font-size: 1.03rem;
   text-align: justify;
   margin-bottom: 15px;
-  font-weight: bold
+  font-weight: bold;
 }
 
 /* Komentar Disamping Sejarah Desa Modang */
@@ -253,7 +247,6 @@ body {
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 1);
-  /* sesuaikan dengan lebar testimoni */
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -312,7 +305,6 @@ body {
 
 .testimoni-box::-webkit-scrollbar {
   display: none;
-  /* biar scroll bar ngilang */
 }
 
 /* Tombol panah vertikal */
@@ -341,7 +333,7 @@ body {
 
 .isi-section {
   padding: 50px 30px;
-  background: linear-gradient( #dcff82,#4a972a);
+  background: linear-gradient(#dcff82, #4a972a);
 }
 
 .judul-kuning {
@@ -351,17 +343,7 @@ body {
   font-size: 24px;
   font-weight: bold;
   display: block;
-  clip-path: polygon(20px 0%,
-      /* sisi kiri agak masuk */
-      100% 0%,
-      /* kanan atas */
-      100% 100%,
-      /* kanan bawah */
-      20px 100%,
-      /* sisi kiri agak masuk */
-      0% 50%
-      /* ujung panah */
-    );
+  clip-path: polygon(20px 0%, 100% 0%, 100% 100%, 20px 100%, 0% 50%);
   margin-bottom: 20px;
   margin-left: 913px;
 }
@@ -374,7 +356,7 @@ body {
 }
 
 .kartu {
-  display:flex;
+  display: flex;
   flex-direction: column;
   justify-content: start;
   background: #f0f1c5;
@@ -420,8 +402,8 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 30px;
-  background: linear-gradient( #dcff82,#4a972a);
-} 
+  background: linear-gradient(#dcff82, #5cb338);
+}
 
 .bagian-lokasi,
 .bagian-komentar {
@@ -526,7 +508,7 @@ body {
 
 /* Profil Pengelola Taman Kehati */
 .latar-profil {
-  background: linear-gradient(to bottom,#4a972a, #dcff82);
+  background: linear-gradient(to bottom, #5cb338, #dcff82);
   padding: 50px 0;
   margin-top: -100px;
 }
