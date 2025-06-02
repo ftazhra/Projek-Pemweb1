@@ -175,6 +175,11 @@ body {
   width: 100%;
 }
 
+.menu a.lokasi-btn::after {
+  content: none;
+  display: none;
+}
+
 .lokasi-btn {
   background-color: #ffff00;
   color: black !important;
@@ -188,8 +193,8 @@ body {
 }
 
 .lokasi-btn:hover {
-  background-color: #ffd700; /* sedikit lebih gelap */
-  color: white !important;
+  background-color: #ffff00;
+  color: #5cb338 !important;
   transform: translateY(-3px);
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
