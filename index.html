@@ -407,12 +407,12 @@
                 return captcha;
             }
 
-            let currentCaptcha = generateCaptcha();
-            document.getElementById("captcha-display").textContent = currentCaptcha;
+            window.currentCaptcha = generateCaptcha();
+            document.getElementById("captcha-display").textContent = window.currentCaptcha;
 
             document.getElementById("refresh-captcha").addEventListener("click", function () {
-                currentCaptcha = generateCaptcha();
-                document.getElementById("captcha-display").textContent = currentCaptcha;
+                window.currentCaptcha = generateCaptcha();
+                document.getElementById("captcha-display").textContent = window.currentCaptcha;
             });
 
             // Fitur rating bintang
@@ -445,7 +445,7 @@
                 const isAnonymous = document.getElementById("anonim").checked;
                 const captchaInput = document.getElementById("captcha-input").value;
 
-                if (!name) {
+                if (!name.trim()) {
                     alert("Harap masukkan nama Anda");
                     return;
                 }
@@ -453,7 +453,7 @@
                     alert("Harap berikan rating");
                     return;
                 }
-                if (captchaInput !== currentCaptcha) {
+                if (captchaInput !== window.currentCaptcha) {
                     alert("Kode CAPTCHA tidak sesuai!");
                     return;
                 }
@@ -483,8 +483,8 @@
                         });
                         ratingValue.value = "0";
 
-                        currentCaptcha = generateCaptcha();
-                        document.getElementById("captcha-display").textContent = currentCaptcha;
+                        window.currentCaptcha = generateCaptcha();
+                        document.getElementById("captcha-display").textContent = window.currentCaptcha;
 
                         alert("Komentar berhasil dikirim!");
                     })
@@ -508,8 +508,8 @@
                 });
                 ratingValue.value = "0";
 
-                currentCaptcha = generateCaptcha();
-                document.getElementById("captcha-display").textContent = currentCaptcha;
+                window.currentCaptcha = generateCaptcha();
+                document.getElementById("captcha-display").textContent = window.currentCaptcha;
             });
         });
     </script>

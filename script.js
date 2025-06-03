@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const isAnonymous = document.getElementById("anonim").checked;
     const captchaInput = document.getElementById("captcha-input").value;
 
-    if (!name) {
+    if (!name.trim()) {
       alert("Harap masukkan nama Anda");
       return;
     }
