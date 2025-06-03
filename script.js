@@ -1,11 +1,12 @@
 //Lihat Selengkapnya destinasi
-const buttons = document.querySelectorAll(".detail-btn");
-
-buttons.forEach((button) => {
-  button.addEventListener("click", () => {
-    window.location.href = "destinasi.html";
-  });
-});
+document.querySelectorAll('.detail-btn').forEach(function(button){
+  button.addEventListener('click',function(){
+    const link = this.getAttribute('data-link');
+    if (link){
+      window.location.href= link;
+    }
+  })
+})
 
 document.addEventListener("DOMContentLoaded", function () {
   // Set tahun saat ini di footer

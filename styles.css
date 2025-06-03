@@ -366,7 +366,9 @@ body {
   height: 100%;
   transition: transform 0.3s;
 }
-
+.kartu h3{
+  color: #016a27;
+}
 .detail-btn {
   border: rgb(232, 232, 80) solid;
   margin-top: auto;
