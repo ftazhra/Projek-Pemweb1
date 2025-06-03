@@ -1,4 +1,4 @@
-//Lihat Selengkapnya destinasi
+// Lihat Selengkapnya destinasi
 document.querySelectorAll('.detail-btn').forEach(function(button){
   button.addEventListener('click',function(){
     const link = this.getAttribute('data-link');
@@ -6,12 +6,11 @@ document.querySelectorAll('.detail-btn').forEach(function(button){
       window.location.href= link;
     }
   })
-})
+});
 
 document.addEventListener("DOMContentLoaded", function () {
   // Set tahun saat ini di footer
-  document.getElementById("current-year").textContent =
-    new Date().getFullYear();
+  document.getElementById("current-year").textContent = new Date().getFullYear();
 
   // 2. Fitur komentar dengan tampilan di testimoni box
   const komentarForm = document.querySelector(".formulir-komentar");
@@ -23,8 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Fungsi untuk membuat kode CAPTCHA acak
   function generateCaptcha() {
-    const chars =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     let captcha = "";
     for (let i = 0; i < 5; i++) {
       captcha += chars.charAt(Math.floor(Math.random() * chars.length));
@@ -33,16 +31,14 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Generate CAPTCHA pertama kali
-  let currentCaptcha = generateCaptcha();
-  document.getElementById("captcha-display").textContent = currentCaptcha;
+  window.currentCaptcha = generateCaptcha();
+  document.getElementById("captcha-display").textContent = window.currentCaptcha;
 
   // Refresh CAPTCHA
-  document
-    .getElementById("refresh-captcha")
-    .addEventListener("click", function () {
-      currentCaptcha = generateCaptcha();
-      document.getElementById("captcha-display").textContent = currentCaptcha;
-    });
+  document.getElementById("refresh-captcha").addEventListener("click", function () {
+    window.currentCaptcha = generateCaptcha();
+    document.getElementById("captcha-display").textContent = window.currentCaptcha;
+  });
 
   // Fitur rating bintang
   const stars = document.querySelectorAll(".star");
@@ -71,7 +67,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const newComment = document.createElement("div");
     newComment.className = "satu-testimoni";
 
-    // Jika anonim, ganti nama menjadi "Anonim"
     function maskName(name) {
       if (name.length <= 2) {
         return name[0] + "*".repeat(name.length - 1);
@@ -85,7 +80,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const displayName = isAnonymous ? maskName(name) : name;
 
-    // Konversi rating ke bintang
     let starsStr = "";
     for (let i = 1; i <= 5; i++) {
       starsStr += i <= rating ? "★" : "☆";
@@ -100,7 +94,6 @@ document.addEventListener("DOMContentLoaded", function () {
       </div>
     `;
 
-    // Tambahkan komentar baru di atas komentar yang sudah ada
     testimoniBoxInDom.insertBefore(newComment, testimoniBoxInDom.firstChild);
   }
 
@@ -120,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
       alert("Harap berikan rating");
       return;
     }
-    if (captchaInput !== currentCaptcha) {
+    if (captchaInput !== window.currentCaptcha) {
       alert("Kode CAPTCHA tidak sesuai!");
       return;
     }
@@ -143,8 +136,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     ratingValue.value = "0";
 
-    currentCaptcha = generateCaptcha();
-    document.getElementById("captcha-display").textContent = currentCaptcha;
+    window.currentCaptcha = generateCaptcha();
+    document.getElementById("captcha-display").textContent = window.currentCaptcha;
 
     alert("Komentar berhasil dikirim!");
   });
@@ -162,9 +155,12 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     ratingValue.value = "0";
 
-    currentCaptcha = generateCaptcha();
-    document.getElementById("captcha-display").textContent = currentCaptcha;
+    window.currentCaptcha = generateCaptcha();
+    document.getElementById("captcha-display").textContent = window.currentCaptcha;
   });
+
+  // Panggil data pengelola
+  loadPengelolaData();
 });
 
 // 3. Fitur Pergeseran Profil Pengelola Taman Kehati
@@ -187,12 +183,11 @@ panahKanan.addEventListener("click", () => {
 });
 
 // 4. Fitur Pergeseran Komentar
-// Ganti nama variabel agar tidak bentrok dengan yang di dalam DOMContentLoaded
 const testimoniScrollBox = document.getElementById("testimoni-scroll");
 const panahAtas = document.querySelector(".panah-atas");
 const panahBawah = document.querySelector(".panah-bawah");
 
-const scrollStep = 120; // jumlah pixel per klik, sesuaikan dengan tinggi testimoni
+const scrollStep = 120;
 
 panahAtas.addEventListener("click", () => {
   testimoniScrollBox.scrollBy({
@@ -228,36 +223,12 @@ function displayPengelola(pengelola) {
     card.className = "kartu-profil";
 
     card.innerHTML = `
-            <img src="${orang.foto}" alt="avatar" />
-            <h3>${orang.nama}</h3>
-            ${orang.nip ? `<p><a href="#">${orang.nip}</a></p>` : ""}
-            <p>${orang.jabatan}</p>
-        `;
+      <img src="${orang.foto}" alt="avatar" />
+      <h3>${orang.nama}</h3>
+      ${orang.nip ? `<p><a href="#">${orang.nip}</a></p>` : ""}
+      <p>${orang.jabatan}</p>
+    `;
 
     container.appendChild(card);
   });
 }
-
-// Panggil fungsi saat halaman dimuat
-document.addEventListener("DOMContentLoaded", () => {
-  loadPengelolaData();
-
-  // Kode untuk panah scroll tetap sama
-  const scrollArea = document.getElementById("scroll-area");
-  const panahKiri = document.querySelector(".panah-kiri");
-  const panahKanan = document.querySelector(".panah-kanan");
-
-  panahKiri.addEventListener("click", () => {
-    scrollArea.scrollBy({
-      left: -300,
-      behavior: "smooth",
-    });
-  });
-
-  panahKanan.addEventListener("click", () => {
-    scrollArea.scrollBy({
-      left: 300,
-      behavior: "smooth",
-    });
-  });
-});
