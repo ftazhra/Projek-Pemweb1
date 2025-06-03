@@ -27,123 +27,124 @@
 }
 
 body {
-  background: linear-gradient(to bottom, #5cb338, #dcff82);
+  background: linear-gradient(to bottom, #dcff82, #5cb338);
   color: #333;
   line-height: 1.6;
 }
 
-/* Header */
+/* Bagian Navigasi */
 .navigasi {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
-    background-color: rgba(0, 0, 0, 0.6);
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: rgba(0, 0, 0, 0.6);
+  /* transparan hitam */
+  position: absolute;
+  width: 100%;
+  top: 0;
+  z-index: 10;
 }
 
 .logo-kiri {
-    display: flex;
-    gap: 5px;
-    align-items: center;
+  display: flex;
+  gap: 5px;
+  align-items: center;
 }
 
 .logo-box {
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 10px;
-    overflow: hidden;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  overflow: hidden;
 }
 
 .logo-box img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    display: block;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
 }
 
 .box-a {
-    width: 70px;
-    height: 70px;
-    margin-top: -3px;
-    margin-right: -10px;
+  width: 70px;
+  height: 70px;
+  margin-top: -3px;
+  margin-right: -10px;
 }
 
 .box-b {
-    width: 50px;
-    height: 50px;
-    margin-right: 1px;
+  width: 50px;
+  height: 50px;
+  margin-right: 1px;
 }
 
 .box-c {
-    width: 70px;
-    height: 70px;
-    margin-top: -17px;
+  width: 70px;
+  height: 70px;
+  margin-top: -17px;
 }
 
 .menu {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 .menu a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.1rem;
-    font-weight: 500;
-    position: relative;
-    transition: all 0.3s ease;
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  position: relative;
+  transition: all 0.3s ease;
 }
 
 .menu a::after {
-    content: "";
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 0%;
-    height: 2px;
-    background-color: #ffff00;
-    transition: width 0.3s ease;
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #ffff00;
+  transition: width 0.3s ease;
 }
 
 .menu a:hover {
-    color: #ffff00;
-    transform: translateY(-2px);
+  color: #ffff00;
+  transform: translateY(-2px);
 }
 
 .menu a:hover::after {
-    width: 100%;
+  width: 100%;
 }
 
 .menu a.lokasi-btn::after {
-    content: none;
-    display: none;
+  content: none;
+  display: none;
 }
 
 .lokasi-btn {
-    background-color: #ffff00;
-    color: black !important;
-    padding: 8px 14px;
-    border-radius: 20px;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #ffff00;
+  color: black !important;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .lokasi-btn:hover {
-    background-color: #ffff00;
-    color: #5cb338 !important;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  background-color: #ffff00;
+  color: #5cb338 !important;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* Konten destinasi */
@@ -182,7 +183,7 @@ body {
   border-radius: 2px;
 }
 
-img {
+.destinasi-container img {
   border-radius: 2%;
   width: 80%;
   max-height: 450px;

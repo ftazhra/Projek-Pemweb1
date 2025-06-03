@@ -27,7 +27,7 @@
 }
 
 body {
-  background: linear-gradient(to bottom, #5cb338, #dcff82);
+  background: linear-gradient(to bottom, #dcff82, #5cb338);
   color: #333;
   line-height: 1.6;
 }
