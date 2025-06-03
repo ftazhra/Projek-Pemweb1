@@ -84,6 +84,7 @@ body {
   color: #ddd;
 }
 
+/* Bagian Navigasi */
 .navigasi {
   display: flex;
   justify-content: space-between;
@@ -213,7 +214,7 @@ body {
 }
 
 .sejarah-desa h2 {
-  background: orange;
+  background: linear-gradient(90deg, #faae00, #ff7600);
   color: white;
   padding: 10px 20px;
   width: 100%;
@@ -337,15 +338,16 @@ body {
 }
 
 .judul-kuning {
-  background: orange;
+  background: linear-gradient(90deg, #faae00, #ff7600);
   color: white;
   padding: 10px 20px;
   font-size: 24px;
   font-weight: bold;
   display: block;
+  text-align: center;
   clip-path: polygon(20px 0%, 100% 0%, 100% 100%, 20px 100%, 0% 50%);
+  margin-top: -65px;
   margin-bottom: 20px;
-  margin-left: 913px;
 }
 
 .destinasi-kartu {
@@ -516,7 +518,7 @@ body {
 }
 
 .profil-judul {
-  background-color: #f7f700;
+  background: linear-gradient(90deg, #f7f700, #ffae00);
   text-align: center;
   padding: 20px 10px;
   font-size: 2rem;
