@@ -97,50 +97,7 @@ document.addEventListener("DOMContentLoaded", function () {
     testimoniBoxInDom.insertBefore(newComment, testimoniBoxInDom.firstChild);
   }
 
-  // Event listener tombol kirim
-  tombolKirim.addEventListener("click", function () {
-    const name = document.getElementById("nama").value;
-    const comment = document.getElementById("ulasan").value;
-    const rating = parseInt(document.getElementById("rating-value").value);
-    const isAnonymous = document.getElementById("anonim").checked;
-    const captchaInput = document.getElementById("captcha-input").value;
 
-    if (!name.trim()) {
-      alert("Harap masukkan nama Anda");
-      return;
-    }
-    if (rating === 0) {
-      alert("Harap berikan rating");
-      return;
-    }
-    if (captchaInput !== window.currentCaptcha) {
-      alert("Kode CAPTCHA tidak sesuai!");
-      return;
-    }
-    if (!comment) {
-      alert("Harap masukkan komentar");
-      return;
-    }
-
-    addComment(name, comment, rating, isAnonymous);
-
-    // Reset form
-    document.getElementById("nama").value = "";
-    document.getElementById("ulasan").value = "";
-    document.getElementById("captcha-input").value = "";
-    document.getElementById("anonim").checked = false;
-
-    stars.forEach((star) => {
-      star.classList.remove("active");
-      star.textContent = "☆";
-    });
-    ratingValue.value = "0";
-
-    window.currentCaptcha = generateCaptcha();
-    document.getElementById("captcha-display").textContent = window.currentCaptcha;
-
-    alert("Komentar berhasil dikirim!");
-  });
 
   // Event listener tombol reset
   tombolReset.addEventListener("click", function () {
