@@ -1,3 +1,4 @@
+// 1. Fitur Lihat Selengkapnya destinasi
 // Lihat Selengkapnya destinasi
 document.querySelectorAll('.detail-btn').forEach(function(button){
   button.addEventListener('click',function(){
