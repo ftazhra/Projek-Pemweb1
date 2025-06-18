@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .kepala {
+        background-image: url(imggg/background.jpeg);
+        background-size: cover;
+        background-position: center;
+        padding: 150px 30px;
+        text-align: center;
+        color: white;
+        position: relative;
+    }
+    .head1{
+        color:red;
+    }
+</style>
+
+<body>
+    <div class="kepala">
+        <h1 class="head1">MENJELAJAH TAMAN KEANEKARAGAMAN HAYATI</h1>
+        <h2 style="text-align: center; color: blue;"><i>Satu taman berjuta kehidupan temukan semuanya diujung jarimu</i>
+        </h2>
+        <p id="blink">Selamat datang di Kalimantan Timur, di mana alam tak hanya indah, tapi juga bijak memeluk keanekaragaman dan
+            merawat warisan budaya dalam damai.</p>
+    </div>
+    
+</body>
+
+<script>const teks =document.getElementById('blink');
+let terlihat = true;
+
+setInterval(() => {
+terlihat =!terlihat;
+teks.style.opacity = terlihat ? '1':'0';
+}, 500); 
+
+
+</script>
+
+</html>
